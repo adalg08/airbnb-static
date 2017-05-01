@@ -41,33 +41,22 @@ title: AirBnB Clone
 <div class="cards text-center padded">
   <h2>Your next trip</h2>
   <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/card-paris.jpg'); background-size: cover">
-          <span>Paris</span>
-          <img src="images/seb.jpg" class="avatar" alt="">
-          <h3>Seb's home</h3>
-          <p>Charming room with patio</p>
+  <div class="row">
+    <% data.flats.each do |owner, flat| %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path flat.picture %>');">
+        <div class="card-category"><%= flat.city %></div>
+        <div class="card-description">
+          <h2><%= flat.name %></h2>
+          <p><%= flat.summary %></p>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/card-brussels.jpeg'); background-size: cover">
-          <span>Brussels</span>
-          <img src="images/anne.jpg" class="avatar" alt="">
-          <h3>Anne's home</h3>
-          <p>Lovely house</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/card-london.jpeg'); background-size: cover">
-          <span>London</span>
-          <img src="images/romain.jpg" class="avatar" alt="">
-          <h3>Romain's home</h3>
-          <p>Nice flat in Piccadilly</p>
-        </div>
+        <%= image_tag flat.owner_picture, class:"card-user avatar-small" %>
+        <%= link_to "", "flats/#{owner}.html", class: "card-link" %>
       </div>
     </div>
+    <% end %>
   </div>
+</div>
 </div>
 
 <!-- Your newsletter code -->

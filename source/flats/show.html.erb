@@ -1,0 +1,26 @@
+---
+title: AirBnB Clone
+---
+<!-- Read from data.flats with owner's name as key -->
+<% flat = data.flats[owner] %>
+
+<%= image_tag flat.picture, class: "flat-cover" %>
+<div class="flat padded">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
+        <%= image_tag flat.owner_picture, class: "avatar-small" %>
+        <p><%= flat.owner_name %></p>
+        <h1><%= flat.description %></h1>
+        <p><%= flat.city %></p>
+      </div>
+      <div class="col-xs-6">
+        <div class="flat-description">
+          <p><strong> Description </strong></p>
+          <p><%= flat.summary %></p>
+          <p><%= flat.wifi %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
